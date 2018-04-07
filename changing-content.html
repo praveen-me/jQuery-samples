@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Updating Content</title>
+    <style media="screen">
+      ul{
+        list-style-type: none;
+        border-left:0px;
+      }
+      li{
+        display: block;
+        border: 1px solid;
+        height: inherit;
+        font-size: 25px;
+        padding-left: 20px;
+        color: inherit;
+      }
+      .hot{
+        background-color: brown;
+      }
+      .headline{
+        font-size: 40px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="page">
+      <h1 id="header">List</h1>
+      <h2>Buy groceries</h2>
+      <ul>
+        <li id="one" class="hot"><em>fresh</em>figs</li>
+        <li id="two" class="hot">pine nut</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">Balsamic Vinegar</li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
+    <script type="text/javascript">
+      // This method return li that conatain 'pine' anywhere in it's content
+      // and replace it with 'Pine Apple'
+      $('li:contains("pine")').text('Pine Apple');
+
+      // This function returns all <li> with class '.hot' and update with
+      // emphasis text
+      $('li.hot').html(function(){
+        return '<em>'+$(this).text()+'</em>'
+      });
+
+      //This statement removes the li with id 'one'
+
+      // $('li#one').remove();
+
+      // Romeve '//' to use it works or not
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Content</title>
+    <style media="screen">
+      ul{
+        list-style-type: none;
+        border-left:0px;
+      }
+      li{
+        display: block;
+        border: 1px solid;
+        height: inherit;
+        font-size: 25px;
+        padding-left: 20px;
+        color: inherit;
+      }
+      .hot{
+        background-color: brown;
+      }
+      .headline{
+        font-size: 40px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="page">
+      <h1 id="header">List</h1>
+      <h2>Buy groceries</h2>
+      <ul>
+        <li id="one" class="hot"><em>fresh</em>figs</li>
+        <li id="two" class="hot">pine nut</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">Balsamic Vinegar</li>
+      </ul>
+    </div>
+    <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
+    <script type="text/javascript">
+      // First
+      var listHTML = $('ul').html()
+      $('ul').append(listHTML)
+
+      // The selector returns the <ul> element.
+      // The html() method gets all the HTML inside it(The four <li> element).
+      // This is then approached to the end of the selection, in this case after
+      // the existing <li> elements.
+
+      //Second
+      var listHTML2 = $('ul').text();
+      $('ul').append('<p> '+listHTML2+'</p>')
+
+      // The selector returns the <ul> element. The text() method gets the text
+      // from all the <ul>  elements childrens. Then is the appended to the end
+      // of the selection, in this case after the existing <ul> element.
+
+      // Third
+      var listHTML3 = $('li').html();
+      $('li').append('<i> '+listHTML3+"</i>")
+
+      // The selector returns all the <li> elements but the .html() method
+      // return the html of first  li and then appended to all li.
+
+      // fourth
+
+      var listHTML4 = $('li').text();
+      $('li').append('<i>'+listHTML4+'</i>');
+
+
+      // The selector returns all four li elements. The text() methods gets
+      // the text form all from these. This is then appended to each of it's li
+      // elements in the solution.
+
+    </script>
+  </body>
+</html>
