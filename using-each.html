@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Working with Attributes</title>
+    <title>Using Each</title>
     <style media="screen">
       ul{
         list-style-type: none;
@@ -31,7 +31,14 @@
         border: 1px solid black;
         background-color: black;
       }
-
+      p{
+        display: block;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        font-size : 20px;
+        border-radius: 15px;
+      }
     </style>
 
   </head>
@@ -50,15 +57,15 @@
     <script type="text/javascript">
       $(function ($) {
 
-          // This remove the class 'hot' from the third 'li' element.
-          $('li#three').removeClass('hot');
+          // This statement apply each method
+          $('li').each(function() {
 
-          // This is will add class 'favrouite' to the all <li> with clas 'hot'
-          $('li.hot').addClass('favrouite');
+            // This method fetch the value of ids from all li elements
+            var ids = $(this).attr('id');
 
-          // This is add a attribute of 'id' of 'group' to the ul
-          $('ul').attr('id', 'group');
-
+            //This statement append id of the particular element inside the current element
+            $(this).append(' <span class="order">'+ids+'</span>');
+          });
       });
     </script>
   </body>

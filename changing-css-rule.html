@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Working with Attributes</title>
+    <title>Changing CSS Rule</title>
     <style media="screen">
       ul{
         list-style-type: none;
@@ -31,7 +31,14 @@
         border: 1px solid black;
         background-color: black;
       }
-
+      p{
+        display: block;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        font-size : 20px;
+        border-radius: 15px;
+      }
     </style>
 
   </head>
@@ -49,15 +56,21 @@
     <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
     <script type="text/javascript">
       $(function ($) {
+        // This method fetch the value of background-color
+        var backgroundColor = $('li').css('background-color');
 
-          // This remove the class 'hot' from the third 'li' element.
-          $('li#three').removeClass('hot');
+        // The statement append a paragrapgh to ul of previous color
+        $('ul').append('<p>The Backgroungd Color is <strong>'+backgroundColor+'</strong>');
 
-          // This is will add class 'favrouite' to the all <li> with clas 'hot'
-          $('li.hot').addClass('favrouite');
 
-          // This is add a attribute of 'id' of 'group' to the ul
-          $('ul').attr('id', 'group');
+        // This statement set the multiple css on all li elements
+        $('li').css({
+          'background-color' : '#c5a996',
+          'border' : '1px solid #fff',
+          'font-family' : 'Georgia',
+          'color' : '#000',
+          'text-align' : 'center'
+        });
 
       });
     </script>
