@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Events</title>
+    <title>Basic Effect</title>
     <style media="screen">
       ul{
         list-style-type: none;
@@ -42,16 +42,18 @@
         position: absolute;
         right: 25px;
       }
+      .date{
+        font-size: 20px;
+      }
+      p{
+        text-align: center;
+      }
     </style>
 
   </head>
   <body>
-    <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,gu,hi,kn,ml,mr,pa,sd,si,sw,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
+
+
     <div class="page">
       <h1 id="header">List</h1>
       <h2>Buy groceries</h2>
@@ -61,28 +63,26 @@ function googleTranslateElementInit() {
         <li id="three" class="hot">honey</li>
         <li id="four">Balsamic Vinegar</li>
       </ul>
+
     </div>
     <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
     <script type="text/javascript">
       $(function ($) {
-        // This statement initialize a variable ids to store value of each id
-        var ids;
+        // This staments make a animation of sildeDown
+        $('h2').hide(700).slideDown();
 
-        //This statement fetch the value of li
-        var listItem = $('li');
+        // Selects all li elements
+        var li = $('li');
 
-        // This block trigger mouseover and click events and make some interesting magic
-        $(listItem).on('mouseover click', function(){
-          ids = this.id;
-          $(listItem).children('span').remove();
-          $(this).append(' <span class="priority">'+ids+'</span>')
+        // Make an animation of fadeIn
+        $(li).hide().each(function(index){
+          $(this).delay(700*index).fadeIn(1000);
         });
 
-        //This block triggers mouseout events and remove the span element the mouse is out
-        // from the li block
-        $(listItem).on('mouseout', function() {
-          $(this).children('span').remove();
-        });
+        // Make an animation of fadeOut when you clicked an li;
+        $(li).on('click', function(){
+          $(this).fadeOut(1000);
+        })
       });
     </script>
   </body>

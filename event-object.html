@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Events</title>
+    <title>Event Object</title>
     <style media="screen">
       ul{
         list-style-type: none;
@@ -42,16 +42,19 @@
         position: absolute;
         right: 25px;
       }
+      .date{
+        font-size: 20px;
+      }
     </style>
 
   </head>
   <body>
     <div id="google_translate_element"></div><script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,gu,hi,kn,ml,mr,pa,sd,si,sw,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,bn,gu,hi,kn,ml,mr,pa,sd,si,sw,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
+
     <div class="page">
       <h1 id="header">List</h1>
       <h2>Buy groceries</h2>
@@ -65,23 +68,18 @@ function googleTranslateElementInit() {
     <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
     <script type="text/javascript">
       $(function ($) {
-        // This statement initialize a variable ids to store value of each id
-        var ids;
+        // This statement triggers a click event on each li element
+        $('li').on('click', function(e){
 
-        //This statement fetch the value of li
-        var listItem = $('li');
+          // Removes the span element from all li tags
+          $('li span').remove();
 
-        // This block trigger mouseover and click events and make some interesting magic
-        $(listItem).on('mouseover click', function(){
-          ids = this.id;
-          $(listItem).children('span').remove();
-          $(this).append(' <span class="priority">'+ids+'</span>')
-        });
+          // Create a date object
+          var date = new Date();
 
-        //This block triggers mouseout events and remove the span element the mouse is out
-        // from the li block
-        $(listItem).on('mouseout', function() {
-          $(this).children('span').remove();
+          // append the event type and date with in a span element
+          var clicked = date.toDateString();
+          $(this).append(' <span class="date">'+clicked+" "+e.type.toUpperCase()+"</span>")
         });
       });
     </script>
