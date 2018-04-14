@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Transversing DOM</title>
+    <title>Using Filters</title>
     <style media="screen">
       ul{
         list-style-type: none;
@@ -77,20 +77,29 @@
 
       $(function ($) {
 
-        var h2 = $('h2');
-        // This statement hides the ul
-        $('ul').hide();
+        var listItem = $('li');
 
-        // This statements append <a> element to the h2
-        $(h2).append(' <a>Show</a>');
+        // This statement filter the li tag and remove the class '.hot' from the last li element
+        $(listItem).filter('.hot:last').removeClass('hot');
 
-        // This statement triggers an event of click and perform an effect on the <ul>
-        $(h2).on('click', function(){
-          $(h2).next().fadeIn(500).children('.hot').addClass('complete');
-          $(h2).find('a').fadeOut();
+        // This statements add the class to all the li element who does not contains the
+        // class hot
+        $("li:not(.hot)").addClass('cool');
 
+        // This statement add the class of complete to that li which contains the 'em' text.
+        $(listItem).has('em').addClass('complete');
+
+        // This statement check for all li element whether they contains the class 'hot'
+        // If they then It perpends some text to it.
+        $(listItem).each(function() {
+          if($(this).is('.hot')){
+            $(this).prepend('Priority Item : ')
+          }
         });
 
+        // This statements search which li element contains the string 'honey' then append
+        // a string of '(local)' to it.
+        $('li:contains("honey")').append(' (local) ')
 
       });
     </script>
