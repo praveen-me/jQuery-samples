@@ -54,6 +54,9 @@
       .cool{
         background: #3498db;
       }
+      .complete{
+        background-color: #3B3B98;
+      }
     </style>
 
   </head>
@@ -74,32 +77,16 @@
     <script type="text/javascript" src="/jQuery/jquery.min.js"></script>
     <script type="text/javascript">
 
-
       $(function ($) {
 
-        var listItem = $('li');
+        // This statement removes the class from the upper 2 li elements
+        $('li:lt(2)').removeClass('hot');
 
-        // This statement filter the li tag and remove the class '.hot' from the last li element
-        $(listItem).filter('.hot:last').removeClass('hot');
+        // This  statement addClass that li element whose index number is 0
+        $('li').eq(0).addClass('complete');
 
-        // This statements add the class to all the li element who does not contains the
-        // class hot
-        $("li:not('.hot')").addClass('cool');
-
-        // This statement add the class of complete to that li which contains the 'em' text.
-        $(listItem).has('em').addClass('complete');
-
-        // This statement check for all li element whether they contains the class 'hot'
-        // If they then It perpends some text to it.
-        $(listItem).each(function() {
-          if($(this).is('.hot')){
-            $(this).prepend('Priority Item : ')
-          }
-        });
-
-        // This statements search which li element contains the string 'honey' then append
-        // a string of '(local)' to it.
-        $('li:contains("honey")').append(' (local) ')
+        // This statement add a class to li element whose index number is greater than 2
+        $('li:gt(2)').addClass('cool');
 
       });
     </script>
